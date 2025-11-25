@@ -60,7 +60,7 @@ iconcom.classList.add('icone-btn');
 const textoBtn = document.createTextNode('Compre Agora');
 btnComprar.append(textoBtn, iconcom);
 btnComprar.addEventListener('click', () => {
-    window.location.href = '../../Luiz/koch/index.html';
+    window.location.href = 'Luiz/koch/index.html';
 });
 
 
@@ -118,7 +118,7 @@ const text = document.createTextNode('Veja Nosso Catalogo');
 
 btnSaibaMais.append(text, icon);
 btnSaibaMais.addEventListener('click', () => {
-    window.location.href = '../../Igor/projeto.tela1 4/index.html';
+    window.location.href = 'Igor/projeto.tela1 4/index.html';
 });
 bloco.append(tituloProd, pProd, btnSaibaMais);
 container.append(imgProd, bloco);
@@ -127,10 +127,15 @@ secProducao.append(tituloSec, container);
 document.body.appendChild(secProducao);
 
 
+// Verifica se é o primeiro acesso ao site
 setTimeout(()=>{
-document.getElementById("popUp").style.display = "flex"
-document.getElementById("block").style.overflow = "hidden"
-
+  // Se não existe a chave 'popupShown' no localStorage, é o primeiro acesso
+  if (!localStorage.getItem('popupShown')) {
+    document.getElementById("popUp").style.display = "flex"
+    document.getElementById("block").style.overflow = "hidden"
+    // Marca que o popup já foi mostrado permanentemente
+    localStorage.setItem('popupShown', 'true');
+  }
 },1000)
 
 function PopUp(){
